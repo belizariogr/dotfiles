@@ -4,3 +4,4 @@ cp -f .zshrc ~/
 cp -f .zprofile ~/
 cp -f .gitconfig ~/
 cp -rf .oh-my-zsh ~/
+cp -rf .nix ~/
