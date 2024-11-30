@@ -23,11 +23,26 @@
 
             homebrew = {
                 enable = true;
+
+                brews = [
+                    "mas"
+                ];
+
                 casks = [
                     "sublime-text"
                     "iina"
                     "the-unarchiver"
                 ];
+
+                masApps = {
+                    "Action" = 1322446807;
+                    "Proton Pass For Safari" = 6502835663;
+                    "New Terminal Here" = 1067646949;
+                    "WhatsApp" = 310633997;
+                    "xcode" = 497799835;
+                };
+
+                onActivation.cleanup = "zap";
             };
 
             # Fonts
