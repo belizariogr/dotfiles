@@ -13,11 +13,11 @@
         configuration = { pkgs, config, ... }: {
 
             nixpkgs.config.allowUnfree = true;
-            # List packages installed in system profile. To search by name, run:
-            # $ nix-env -qaP | grep wget
+
             environment.systemPackages = [
                 pkgs.mkalias
                 pkgs.vscode
+                pkgs.docker
                 pkgs.nodejs_20
                 pkgs.google-chrome
                 pkgs.redis
@@ -28,12 +28,15 @@
 
                 brews = [
                     "mas"
+                    "zsh-syntax-highlighting"
                 ];
 
                 casks = [
                     "sublime-text"
                     "iina"
                     "the-unarchiver"
+                    "dozer"
+                    "scroll-reverser"
                 ];
 
                 masApps = {
@@ -86,9 +89,10 @@
                     AppleInterfaceStyle = "Dark";
                     AppleInterfaceStyleSwitchesAutomatically = false;
                     AppleSpacesSwitchOnActivate = true;
-                    InitialKeyRepeat = 1;
-                    KeyRepeat = 1;
+                    KeyRepeat = 2;
                 };
+
+                trackpad.Clicking = true;
 
                 controlcenter = {
                     BatteryShowPercentage = true;
@@ -100,9 +104,7 @@
                     minimize-to-application = true;
                     show-recents = false;
                     # persistent-apps = [ ];
-                    persistent-others = [
-                        "~/Downloads"
-                    ];
+                    # persistent-others = [];
                 };
 
                 finder = {
@@ -118,7 +120,6 @@
                     GuestEnabled = false;
                 };
             };
-
 
             networking = {
                 knownNetworkServices = [

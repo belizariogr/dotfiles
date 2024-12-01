@@ -1,0 +1,10 @@
+{
+	"font_size": 16,
+	"word_wrap": false,
+	"hot_exit": "disabled",
+	"ignored_packages":
+	[
+		"Vintage",
+	],
+	"index_files": true,
+}

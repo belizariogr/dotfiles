@@ -5,7 +5,6 @@ ZSH_THEME="belizario"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Plataform Specific Config
-source ~/.zprofile
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
