@@ -105,8 +105,20 @@
                     ];
                 };
 
+                finder = {
+                    FXPreferredViewStyle = "Nlsv";
+                    NewWindowTarget = "Home";
+                    ShowHardDrivesOnDesktop = true;
+                    ShowMountedServersOnDesktop = true;
+                    ShowPathbar = true;
+                    _FXSortFoldersFirst = true;
+                };
 
+                loginwindow = {
+                    GuestEnabled = false;
+                };
             };
+
 
             networking = {
                 knownNetworkServices = [
