@@ -19,6 +19,8 @@
                 pkgs.mkalias
                 pkgs.vscode
                 pkgs.nodejs_20
+                pkgs.google-chrome
+                pkgs.redis
             ];
 
             homebrew = {
@@ -43,6 +45,8 @@
                 };
 
                 onActivation.cleanup = "zap";
+                onActivation.autoUpdate = true;
+                onActivation.upgrade = true;
             };
 
             # Fonts
@@ -72,6 +76,53 @@
                 done
             '';
 
+            system.defaults = {
+                # GlobalPreferences = {
+                #     # "com.apple.mouse.scaling" = -1.0
+                # };
+
+                NSGlobalDomain = {
+                    AppleICUForce24HourTime = true;
+                    AppleInterfaceStyle = "Dark";
+                    AppleInterfaceStyleSwitchesAutomatically = false;
+                    AppleSpacesSwitchOnActivate = true;
+                    InitialKeyRepeat = 1;
+                    KeyRepeat = 1;
+                };
+
+                controlcenter = {
+                    BatteryShowPercentage = true;
+                    Sound = true;
+                };
+
+                dock = {
+                    mineffect = "scale";
+                    minimize-to-application = true;
+                    show-recents = false;
+                    # persistent-apps = [ ];
+                    persistent-others = [
+                        "~/Downloads"
+                    ];
+                };
+
+
+            };
+
+            networking = {
+                knownNetworkServices = [
+                    "Wi-Fi"
+                    "Ethernet Adaptor"
+                    "Thunderbolt Ethernet"
+                ];
+                dns = [
+                    "1.1.1.1"
+                    "8.8.8.8"
+                    "8.8.4.4"
+                ];
+            };
+
+            services.redis.enable = true;
+
             # Necessary for using flakes on this system.
             nix.settings.experimental-features = "nix-command flakes";
 
@@ -88,8 +139,7 @@
             # The platform the configuration will be used on.
             nixpkgs.hostPlatform = "aarch64-darwin";
         };
-    in
-    {
+    in {
         # Build darwin flake using:
         # $ darwin-rebuild build --flake .#simple
         darwinConfigurations."belizario" = nix-darwin.lib.darwinSystem {
