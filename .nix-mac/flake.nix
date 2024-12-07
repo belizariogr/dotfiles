@@ -33,6 +33,7 @@
                     "sublime-text"
                     "iina"
                     "the-unarchiver"
+                    "dozer"
                     "scroll-reverser"
                     "iterm2"
                     "docker"
@@ -96,7 +97,6 @@
                     show-recents = false;
                     # persistent-apps = [ ];
                     # persistent-others = [];
-                    tilesize = 48;
                 };
 
                 finder = {
