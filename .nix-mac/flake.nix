@@ -11,13 +11,11 @@
     outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew }:
     let
         configuration = { pkgs, config, ... }: {
-
             nixpkgs.config.allowUnfree = true;
 
             environment.systemPackages = [
                 pkgs.mkalias
                 pkgs.vscode
-                pkgs.docker
                 pkgs.nodejs_20
                 pkgs.google-chrome
                 pkgs.redis
@@ -37,6 +35,7 @@
                     "the-unarchiver"
                     "scroll-reverser"
                     "iterm2"
+                    "docker"
                 ];
 
                 masApps = {
@@ -59,6 +58,7 @@
             ];
 
             system.activationScripts.applications.text = let
+            
             env = pkgs.buildEnv {
                 name = "system-applications";
                 paths = config.environment.systemPackages;
@@ -125,7 +125,7 @@
                     "8.8.4.4"
                 ];
             };
-
+            
             services.redis.enable = true;
 
             # Necessary for using flakes on this system.
@@ -147,6 +147,8 @@
     in {
         # Build darwin flake using:
         # $ darwin-rebuild build --flake .#simple
+        
+
         darwinConfigurations."belizario" = nix-darwin.lib.darwinSystem {
             modules = [
                 configuration
