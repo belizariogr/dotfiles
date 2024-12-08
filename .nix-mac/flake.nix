@@ -6,14 +6,46 @@
         nix-darwin.url = "github:LnL7/nix-darwin";
         nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
         nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+
+        homebrew-bundle = {
+            url = "github:homebrew/homebrew-bundle";
+            flake = false;
+        };
+        homebrew-core = {
+            url = "github:homebrew/homebrew-core";
+            flake = false;
+        };
+        homebrew-cask = {
+            url = "github:homebrew/homebrew-cask";
+            flake = false;
+        };
+        homebrew-services = {
+            url = "github:homebrew/homebrew-services";
+            flake = false;
+        };
     };
 
-    outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew }:
+    outputs = inputs@{ 
+        self, nix-darwin, nixpkgs, 
+        nix-homebrew,
+        homebrew-bundle,
+        homebrew-core,
+        homebrew-cask,
+        homebrew-services
+    }:
     let
         user = "belizario";
         platform = "aarch64-darwin";
 
-        configuration = { pkgs, config, ... }: {
+        configuration = { 
+            pkgs, config, 
+            nix-homebrew,
+            homebrew-bundle,
+            homebrew-core,
+            homebrew-cask,
+            homebrew-services,
+            ... 
+        }: {
             nixpkgs.config.allowUnfree = true;
 
             environment.systemPackages = [
@@ -184,6 +216,12 @@
 
         darwinConfigurations."belizario" = nix-darwin.lib.darwinSystem {
             modules = [
+                (
+                    { config, ... }:
+                    {
+                        homebrew.taps = builtins.attrNames config.nix-homebrew.taps;
+                    }
+                )
                 configuration
                 nix-homebrew.darwinModules.nix-homebrew  {
                     nix-homebrew = {
@@ -195,6 +233,15 @@
 
                         # User owning the Homebrew prefix
                         user = "${user}";
+
+                        taps = {
+                            "homebrew/homebrew-bundle" = homebrew-bundle;
+                            "homebrew/homebrew-core" = homebrew-core;
+                            "homebrew/homebrew-cask" = homebrew-cask;
+                            "homebrew/homebrew-services" = homebrew-services;
+                        };
+                        
+                        mutableTaps = false;
                     };
                 }
             ];

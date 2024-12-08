@@ -1,5 +1,5 @@
 cd $(dirname $0)
-å
+
 cp -f .zshrc $HOME/
 cp -f .gitconfig $HOME/
 cp -rf .oh-my-zsh $HOME/
