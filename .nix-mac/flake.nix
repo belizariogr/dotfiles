@@ -53,15 +53,7 @@
                 pkgs.vscode
                 pkgs.nodejs_20
                 pkgs.google-chrome
-                pkgs.redis
             ];
-
-            services = {
-                redis = {
-                    enable = true;
-                    port = 6379;
-                };
-            };
 
             homebrew = {
                 enable = true;
@@ -72,11 +64,16 @@
                     {
                         name = "mariadb@11.4";
                         link = true;
+                        start_service = true;
                         conflicts_with = [ 
                             "mysql" 
                             "mariadb"
                         ];
                     }
+                    {
+                        name = "redis";
+                        start_service = true;
+                    } 
                 ];
 
                 casks = [

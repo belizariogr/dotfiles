@@ -12,6 +12,7 @@ PLATFORM="$(uname -o)-$(uname -m)"
 mkdir -p $HOME/.nix
 if [ $PLATFORM == 'Darwin-arm64' ]; then
     cp -rf .nix-mac/flake.nix $HOME/.nix
+    cp -rf .nix-mac/homebrew-services.patch $HOME/.nix
 
     # Restore Apps Preferences
     mkdir -p "$HOME/Library/Preferences/"
