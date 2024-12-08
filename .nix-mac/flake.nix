@@ -209,6 +209,12 @@
             # The platform the configuration will be used on.
             nixpkgs.hostPlatform = "${platform}";
         };
+
+        homebrew-services-patched = nixpkgs.legacyPackages."${platform}".applyPatches {
+            name = "homebrew-services-patched";
+            src = homebrew-services;
+            patches = [ ./homebrew-services.patch ];
+        };
     in {
         # Build darwin flake using:
         # $ darwin-rebuild build --flake .#simple
@@ -238,7 +244,7 @@
                             "homebrew/homebrew-bundle" = homebrew-bundle;
                             "homebrew/homebrew-core" = homebrew-core;
                             "homebrew/homebrew-cask" = homebrew-cask;
-                            "homebrew/homebrew-services" = homebrew-services;
+                            "homebrew/homebrew-services" = homebrew-services-patched;
                         };
                         
                         mutableTaps = false;
