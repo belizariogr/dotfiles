@@ -10,6 +10,9 @@
 
     outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew }:
     let
+        user = "belizario";
+        platform = "aarch64-darwin";
+
         configuration = { pkgs, config, ... }: {
             nixpkgs.config.allowUnfree = true;
 
@@ -21,12 +24,27 @@
                 pkgs.redis
             ];
 
+            services = {
+                redis = {
+                    enable = true;
+                    port = 6379;
+                };
+            };
+
             homebrew = {
                 enable = true;
 
                 brews = [
                     "mas"
                     "zsh-syntax-highlighting"
+                    {
+                        name = "mariadb@11.4";
+                        link = true;
+                        conflicts_with = [ 
+                            "mysql" 
+                            "mariadb"
+                        ];
+                    }
                 ];
 
                 casks = [
@@ -50,6 +68,7 @@
                 onActivation.autoUpdate = true;
                 onActivation.upgrade = true;
             };
+          
 
             # Fonts
             fonts.packages = [
@@ -81,6 +100,8 @@
                     AppleInterfaceStyleSwitchesAutomatically = false;
                     AppleSpacesSwitchOnActivate = true;
                     KeyRepeat = 2;
+                    InitialKeyRepeat = 15;
+                    "com.apple.keyboard.fnState" = true;
                 };
 
                 trackpad.Clicking = true;
@@ -94,8 +115,22 @@
                     mineffect = "scale";
                     minimize-to-application = true;
                     show-recents = false;
-                    # persistent-apps = [ ];
-                    # persistent-others = [];
+                    persistent-apps = [ 
+                        "/System/Applications/Launchpad.app"
+                        "/${pkgs.google-chrome}/Applications/Google Chrome.app"   
+                        "/System/Cryptexes/App/System/Applications/Safari.app"   
+                        "/Applications/WhatsApp.app"   
+                        "/System/Applications/Mail.app"   
+                        "${pkgs.vscode}/Applications/Visual Studio Code.app"   
+                        "/Applications/Navicat Premium Lite.app"   
+                        "/Applications/GitHub Desktop.app"   
+                        "/System/Applications/App Store.app"   
+                        "/System/Applications/System Settings.app"
+                        "/Applications/iTerm.app"
+                    ];
+                    persistent-others = [
+                        "/Users/${user}/Downloads"
+                    ];
                     tilesize = 48;
                 };
 
@@ -125,8 +160,6 @@
                     "8.8.4.4"
                 ];
             };
-            
-            services.redis.enable = true;
 
             # Necessary for using flakes on this system.
             nix.settings.experimental-features = "nix-command flakes";
@@ -142,7 +175,7 @@
             system.stateVersion = 5;
 
             # The platform the configuration will be used on.
-            nixpkgs.hostPlatform = "aarch64-darwin";
+            nixpkgs.hostPlatform = "${platform}";
         };
     in {
         # Build darwin flake using:
@@ -161,7 +194,7 @@
                         enableRosetta = true;
 
                         # User owning the Homebrew prefix
-                        user = "belizario";
+                        user = "${user}";
                     };
                 }
             ];
