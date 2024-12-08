@@ -77,6 +77,8 @@
                 ];
 
                 casks = [
+                    "jordanbaird-ice"
+                    "stats"
                     "sublime-text"
                     "iina"
                     "the-unarchiver"
@@ -152,8 +154,9 @@
                         "/System/Applications/Mail.app"   
                         "${pkgs.vscode}/Applications/Visual Studio Code.app"   
                         "/Applications/Navicat Premium Lite.app"   
+                        "/Applications/Postman.app"   
                         "/Applications/GitHub Desktop.app"   
-                        "/System/Applications/App Store.app"   
+                        # "/System/Applications/App Store.app"   
                         "/System/Applications/System Settings.app"
                         "/Applications/iTerm.app"
                     ];
