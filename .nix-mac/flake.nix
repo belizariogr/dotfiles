@@ -115,7 +115,7 @@
 
         in
             pkgs.lib.mkForce ''
-               
+                /opt/homebrew/opt/mariadb@11.4/bin/mariadb-admin password Jdfl4mr-Kdhe7++
             '';
 
             system.defaults = {
