@@ -85,6 +85,7 @@
                     "scroll-reverser"
                     "iterm2"
                     "docker"
+                    "qbittorrent"
                 ];
 
                 masApps = {
