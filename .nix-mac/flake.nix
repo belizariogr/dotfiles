@@ -116,8 +116,12 @@
             };
 
         in
+            # Extra commands
             pkgs.lib.mkForce ''
+        
                 /opt/homebrew/opt/mariadb@11.4/bin/mariadb-admin password Jdfl4cmr-Kdhe7++
+                
+                sudo defaults write /Library/Preferences/FeatureFlags/Domain/UIKit.plist redesigned_text_cursor -dict-add Enabled -bool NO
             '';
 
             system.defaults = {
