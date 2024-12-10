@@ -60,6 +60,7 @@
 
                 brews = [
                     "mas"
+                    "rsync"
                     "zsh-syntax-highlighting"
                     {
                         name = "mariadb@11.4";
