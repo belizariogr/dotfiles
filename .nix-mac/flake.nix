@@ -155,7 +155,7 @@
                     persistent-apps = [ 
                         "/System/Applications/Launchpad.app"
                         "/${pkgs.google-chrome}/Applications/Google Chrome.app"   
-                        "/System/Cryptexes/App/System/Applications/Safari.app"   
+                        # "/System/Cryptexes/App/System/Applications/Safari.app"   
                         "/Applications/WhatsApp.app"   
                         "/System/Applications/Mail.app"   
                         "/System/Applications/Calendar.app"   
