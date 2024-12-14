@@ -87,6 +87,7 @@
                     "iterm2"
                     "docker"
                     "qbittorrent"
+                    "appcleaner"
                 ];
 
                 masApps = {
