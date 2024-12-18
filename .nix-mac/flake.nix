@@ -88,6 +88,7 @@
                     "docker"
                     "qbittorrent"
                     "appcleaner"
+                    "BetterDisplay"
                 ];
 
                 masApps = {
