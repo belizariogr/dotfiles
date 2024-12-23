@@ -161,6 +161,8 @@
                         "/Applications/WhatsApp.app"   
                         "/System/Applications/Mail.app"   
                         "/System/Applications/Calendar.app"   
+                        "/System/Applications/Notes.app"   
+                        "/Applications/Android Studio.app"   
                         "${pkgs.vscode}/Applications/Visual Studio Code.app"   
                         "/Applications/Navicat Premium Lite.app"   
                         "/Applications/Postman.app"   
