@@ -12,6 +12,7 @@ brew install iina
 brew install rsync
 brew install mas
 brew install sevenzip
+brew install iterm2
 brew install node@20
 rm -rf /opt/homebrew/opt/node@20/bin/npm
 
@@ -20,6 +21,8 @@ brew services start mariadb@11.4
 
 brew install redis
 brew services start redis
+
+brew install navicat-premium-lite
 
 
 mas install 1322446807 # Action

@@ -1,2 +1,3 @@
 .DS_Store
 .nix/flake.lock
+.config/iterm2
