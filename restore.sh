@@ -33,8 +33,10 @@ if [ $PLATFORM == 'Darwin-arm64' ]; then
     ln -s $PWD/mac/Library/Preferences/com.colliderli.iina.plist \
         $HOME/Library/Preferences/com.colliderli.iina.plist
 
-fi
 
-rm -rf $HOME/Library/Application\ Scripts/com.mac-application.ActionApp
-mkdir -p $HOME/Library/Application\ Scripts/com.mac-application.ActionApp
-cp -rf $HOME/Library/Mobile\ Documents/com\~apple\~Automator/Documents/* $HOME/Library/Application\ Scripts/com.mac-application.ActionApp
+
+    rm -rf $HOME/Library/Application\ Scripts/com.mac-application.ActionApp
+    mkdir -p $HOME/Library/Application\ Scripts/com.mac-application.ActionApp
+    cp -rf $HOME/Library/Mobile\ Documents/com\~apple\~Automator/Documents/* $HOME/Library/Application\ Scripts/com.mac-application.ActionApp
+
+fi

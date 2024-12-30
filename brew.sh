@@ -12,6 +12,8 @@ brew install iina
 brew install rsync
 brew install mas
 brew install sevenzip
+brew install node@20
+rm -rf /opt/homebrew/opt/node@20/bin/npm
 
 brew install mariadb@11.4
 brew services start mariadb@11.4
