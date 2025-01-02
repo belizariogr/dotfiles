@@ -23,6 +23,11 @@ brew install redis
 brew services start redis
 
 brew install navicat-premium-lite
+brew install postman
+brew install font-fira-code
+
+brew install anydesk
+
 
 
 mas install 1322446807 # Action
