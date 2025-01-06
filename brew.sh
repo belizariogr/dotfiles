@@ -7,8 +7,8 @@ brew install "docker" --cask
 brew install "qbittorrent"
 brew install "appcleaner"
 brew install "BetterDisplay"
-brew install "ghostty"
 brew install iina
+brew install "ghostty"
 brew install rsync
 brew install mas
 brew install sevenzip
@@ -22,9 +22,11 @@ brew services start mariadb@11.4
 brew install redis
 brew services start redis
 
+brew install --cask github
 brew install navicat-premium-lite
 brew install postman
 brew install font-fira-code
+brew install qemu
 
 brew install anydesk
 

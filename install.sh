@@ -1,4 +1,4 @@
-CURRENT_PATH=$(pwd)
+CURRENT_PATH=$(dirname $0)
 cd $HOME 
 ZSH_CUSTOM=$HOME/.oh-my-zsh
 
