@@ -30,7 +30,7 @@ brew install font-fira-code
 brew install qemu
 
 brew install anydesk
-
+brew install google-chrome
 
 
 mas install 1322446807 # Action
