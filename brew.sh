@@ -27,7 +27,7 @@ brew install --cask github
 brew install navicat-premium-lite
 brew install postman
 brew install font-fira-code
-brew install qemu
+brew install visual-studio-code
 
 brew install anydesk
 brew install google-chrome
