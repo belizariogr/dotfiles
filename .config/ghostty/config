@@ -8,4 +8,4 @@ bold-is-bright=true
 auto-update=download
 quit-after-last-window-closed=true
 shell-integration-features = sudo
-shell-integration = zsh
+shell-integration=zsh
