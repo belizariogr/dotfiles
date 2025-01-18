@@ -1,3 +1,5 @@
+_user="$(whoami)"
+
 ############################################################################################## MOUSE
 
 # Reduce the mouse speed
@@ -36,7 +38,6 @@ defaults write com.apple.HIToolbox AppleFnUsageType -bool false
 defaults write -g "AppleInterfaceStyle" -string "Dark"
 
 # Show battery percentage
-_user=`who | grep console | awk '{ print $1 }'`
 sudo -u $_user defaults write /Users/$_user/Library/Preferences/ByHost/com.apple.controlcenter.plist BatteryShowPercentage -bool true
 
 # Dock - Size
@@ -129,3 +130,6 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 killall SystemUIServer
 killall Dock
 killall Finder
+pkill "Touch Bar agent"
+pkill "Keyboard agent"
+killall "ControlStrip"
