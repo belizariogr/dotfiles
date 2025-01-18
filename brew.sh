@@ -14,7 +14,7 @@ brew install mas
 brew install sevenzip
 brew install iterm2
 brew install node@20
-brew install bun
+brew install oven-sh/bun/bun
 rm -rf /opt/homebrew/opt/node@20/bin/npm
 
 brew install mariadb@11.4
