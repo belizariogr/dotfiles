@@ -8,11 +8,12 @@ brew install "qbittorrent"
 brew install "appcleaner"
 brew install "BetterDisplay"
 brew install iina
-brew install "ghostty"
+brew install ghostty
 brew install rsync
 brew install mas
 brew install sevenzip
 brew install iterm2
+brew cask install fluor
 brew install node@20
 rm -rf /opt/homebrew/opt/node@20/bin/npm
 brew install npm
